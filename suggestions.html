@@ -17,14 +17,15 @@
     <h1><span style="color:red;"> NO TROLLS.</h1></span>
     <h1><span style="color:yellow;"> (seriously i keep getting troll emails)</h1></span>
     <br><br>
-    <input type="text" name="name" placeholder="Name (or Discord Name)" autocomplete="off" required>
-    <input type="email" name="email" placeholder="E-mail (optional)" autocorrect="off" aria-required="false">
-    <textarea rows="5" cols="60" name="message" placeholder="Enter your suggestions or feedback here!" autocomplete="off" required></textarea>
+    <h2>(* = required)</h2>
+    <input type="text" name="name" placeholder="Name*" autocomplete="off" required>
+    <input type="email" name="email" placeholder="E-mail" autocorrect="off" aria-required="false">
+    <textarea rows="5" cols="60" name="message" placeholder="Enter your suggestions or feedback here!*" autocomplete="off" required></textarea>
     <br><br><br>
     <button type="submit">Submit</button>
 </form>
 <br><br>
-<a href="youtrolled.html" class="troll"><span style="font-size:xx-large;">cLiCk HeRe If YoU tRoLlEd!!1111</a>
+<a href="youtrolled.html" class="link"><span style="font-size:xx-large; color: red;">cLiCk HeRe If YoU tRoLlEd!!1111</a>
 
 <br><br><br>
 <h1>Thank you for submitting! (if you even did that)</h1>
@@ -46,39 +47,28 @@
                     }
                 }
                 
-                h1 {
-                    font-family: Oxanium;
-                    color: white;
-                }
-        
-                h2 {
-                    font-family: Oxamium;
-                    color: white;
-                }
-        
-                h3 {
-                    font-family: Oxamium;
-                    color: white;
-                }
-                h4 {
-                    font-family: Oxamium;
-                    color: white;
-                }
-                .goback { float:left ;
+                h1,h2,h3,h4{
+                font-family: Oxanium;
+                color: white;
+                }    
+                .goback { position: absolute; right: 95%; bottom: 96%; 
+                font-family: Oxanium; color: cyan;
+                src: url('Oxanium-VariableFont_wght.ttf');
+                font-size: xx-large;
                 }    
                 input {
                     background-color: white;
-                    width: 70%;
+                    width: 50%;
                     border-radius: 10px;
                     margin-bottom: 20px;
                     font-size: 20px;
-                    margin-left: 12%;
+                    margin-left: 4%;
                     padding: 16px 16px;
                 }
                 textarea {
                     background-color: white;
-                    width: 70%;
-                    margin-left: 13%;
+                    width: 50%;
+                    margin-left: 4%;
                     font-size: 20px;
                     padding: 16px 16px;
                     border-radius: 10px;
@@ -103,13 +93,16 @@
                     text-align: center;
                     display: flex;
                     margin: auto;
+                    transition: 150ms ease;
                 }
                 button:hover {
-                    opacity: 80%;
+                    background-color:#28da64;
                     cursor: pointer;
+                    scale: 1.2;
                 }
-                troll  {
-                    margin-right: 50%;
+                .link{
+                font-family: Oxanium; color: cyan;
+                src: url('Oxanium-VariableFont_wght.ttf');
                 }
         </style>
 

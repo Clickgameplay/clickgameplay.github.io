@@ -13,9 +13,9 @@
 <title>Clickgameplay</title>
 <div style="text-align: center;">
 
-<h1>
-    Welcome!
-</h1>
+    
+<h1 class="rainbow">Welcome!</h1>
+
 <br>
 <img class="click" id="click" alt="click" src="click_funi.png"width="150" height="150">
 
@@ -57,6 +57,7 @@
 <a href="https://github.com/Clickgameplay"><img src="github.png" width="90" height="50"></a>
 <a href="https://www.roblox.com/users/1477737569/profile"><img src="roblox.png" width="50" height="50"></a>
 <a href="https://discord.gg/w7bgpmT9Un"><img src="questionmark.png" width="50" height="50"></a>
+<a href="keypad.html"><img src="questionmark.png" width="50" height="50"></a>
 
 <br>
 <br>
@@ -87,14 +88,48 @@
             font-family: Oxanium;
             color: white;
         }
+        .rainbow {
+          font-size: 50px;
+            text-align: center;
+
+            background: repeating-linear-gradient(
+                -45deg,
+                red 0%,
+                yellow 7.14%,
+                lime 21.5%,
+                cyan 28.56%,
+                blue 35.7%,
+                magenta 42.84%,
+                red 50%
+            );
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+
+            color: transparent; 
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            animation: slide 3s linear infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
         .click {
-            animation: rotateleft 10s linear infinite;
+            animation: rotateleft 7s linear infinite;
         }
         .sticker {
             width: 182px;
             height: 360px;
             text-align: left;
-            right: 20%;
+            right: 22%;
             position: relative;
             animation-name: stickeranim;
             animation-duration: 650ms;
@@ -106,7 +141,7 @@
             height: 350px;
             text-align: right;
             position: relative;
-            left: 25%;
+            left: 28%;
             animation-name: stickeranim2;
             animation-duration: 650ms;
             animation: stickeranim2 2s steps(1) infinite

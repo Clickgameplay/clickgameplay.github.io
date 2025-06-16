@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="icon" href="calculator.png">
+  <h1 class="text">Go back to the <a href="index.html">home page</a> and watch closely; the code is hidden somewhere</h1>
+
+  
+  <title>...?</title>
+  <style>
+    .text {
+      position: absolute;
+      top: 40px;
+      scale: 70%;
+    }
+    @font-face {
+      font-family: Oxanium;
+      src: url('Oxanium-VariableFont_wght.ttf');
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #ffffff;
+    }
+    .container {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 300px;
+    }
+    .display {
+      font-size: 2rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1rem;
+      background: #2c2c2c;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      color: #ffffff;
+      min-height: 2.5rem;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .keypad button {
+      font-size: 1.5rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #555;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .keypad button:hover {
+      background: #777;
+    }
+    .keypad .action {
+      background: #888;
+    }
+    .keypad .action:hover {
+      background: #aaa;
+    }
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      height: 1.5rem;
+      opacity: 0;
+      color: transparent;
+      transition: opacity 0.5s ease;
+      width: 300px;
+      text-align: center;
+    }
+    .message.visible {
+      opacity: 1;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="display" id="display"></div>
+    <div class="keypad">
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="clearDisplay()" class="action">C</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="submitPin()" class="action">OK</button>
+    </div>
+  </div>
+  <div class="message" id="message"></div>
+
+  <script>
+    let input = '';
+
+    function press(num) {
+      if (input.length < 4) {
+        input += num;
+        updateDisplay();
+      }
+    }
+
+    function updateDisplay() {
+      document.getElementById('display').textContent = input;
+    }
+
+    function clearDisplay() {
+      input = '';
+      updateDisplay();
+      hideMessage();
+    }
+
+    function getCorrectPin() {
+      // if you came here to cheat the system you're bad!!!
+      const d1 = Math.sqrt(36);       
+      const d2 = (10 / 2) + 0;         
+      const d3 = 2 * 2;                
+      const d4 = 2 ** 3;               
+      return '' + d1 + d2 + d3 + d4;
+    }
+
+    function submitPin() {
+      const correctPin = getCorrectPin();
+      if (input === correctPin) {
+        showMessage('Access Granted', 'lightgreen');
+        setTimeout(() => {
+      window.location.href = 'secret.html';
+    }, 2000);
+      } else {
+        showMessage('Incorrect PIN', 'salmon');
+        input = '';
+        updateDisplay();
+      }
+    }
+
+    function showMessage(text, color) {
+      const messageEl = document.getElementById('message');
+      messageEl.textContent = text;
+      messageEl.style.color = color;
+      messageEl.classList.add('visible');
+      setTimeout(() => {
+        messageEl.classList.remove('visible');
+      }, 2000);
+    }
+
+    function hideMessage() {
+      document.getElementById('message').classList.remove('visible');
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>
